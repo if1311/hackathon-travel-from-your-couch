@@ -5,6 +5,7 @@ export default class Carousel extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			fullscreen: false,
 			categories: [
 				{
 					category: "Beach",
@@ -43,6 +44,10 @@ export default class Carousel extends Component {
 		};
 	}
 
+	handleClick = () => {
+		this.setState({fullscreen: !this.state.fullscreen});
+	}
+
 	goForward = () => {
 		if (this.state.index === this.state.categories.length - 1) {
 			this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
@@ -59,19 +64,36 @@ export default class Carousel extends Component {
 		}
 	};
 
+	goHome = () => {
+		this.setState({fullscreen: !this.state.fullscreen});
+	}
+
 	render() {
 		return (
 			<div className="container">
-				<div className="homepageCarousel">
+
+				<div className={this.state.fullscreen ? "hidden" : "homepageCarousel"}>
 					<button onClick={this.goBack}>Back</button>
 					<div className="categories">
 						<h1>{this.state.categories[this.state.index].category}</h1>
-						<img alt="lala" src={this.state.categories[this.state.index].image}></img>
-						{/* <div style={{ background: this.state.categories[this.state.index].gradient }} className="gradient">
-							<h1>{this.state.categories[this.state.index].category}</h1>
-						</div> */}
+						<img alt="lala" src={this.state.categories[this.state.index].image} onClick={this.handleClick}></img>
+
 					</div>
 					<button onClick={this.goForward}>Forward</button>
+				</div>
+				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
+				<button onClick={this.goHome}>Home</button>
+					<div className="fsPlayer">
+						<video width="90%" height="80%" controls onClick={this.handleClick}></video>
+					</div>
+					<div className="controls">
+						<button onClick={this.goBack}>Back</button>
+							<div classname="details">
+							<h3>Description</h3>
+							<p>Some details go here</p>
+							</div>
+						<button onClick={this.goForward}>Forward</button>
+					</div>
 				</div>
 			</div>
 		);
