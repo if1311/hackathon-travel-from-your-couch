@@ -1,7 +1,10 @@
 import React from "react";
+
 import GLOBE from "vanta/dist/vanta.globe.min.js";
 import * as THREE from "three";
 import "./App.css";
+import Carousel from "./components/Carousel";
+
 
 class App extends React.Component {
   constructor() {
@@ -22,7 +25,10 @@ class App extends React.Component {
     if (this.vantaEffect) this.vantaEffect.destroy();
   }
   render() {
-    return <div ref={this.vantaRef} className="vanta"></div>;
+    return(<div ref={this.vantaRef} className="vanta">
+            <Carousel />
+           </div>) ;
   }
+
 }
 export default App;
