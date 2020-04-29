@@ -64,6 +64,10 @@ export default class Carousel extends Component {
 		}
 	};
 
+	goHome = () => {
+		this.setState({fullscreen: !this.state.fullscreen});
+	}
+
 	render() {
 		return (
 			<div className="container">
@@ -77,6 +81,7 @@ export default class Carousel extends Component {
 					<button onClick={this.goForward}>Forward</button>
 				</div>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
+				<button onClick={this.goHome}>Home</button>
 					{/* <h1>{this.state.currentCategory[0].category}</h1> */}
 					<div className="fsPlayer">
 						{/* <h3>{this.state.categories[this.state.index].category}</h3> */}
