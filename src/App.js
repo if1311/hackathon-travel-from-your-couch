@@ -12,6 +12,10 @@ class App extends React.Component {
     this.vantaEffect = GLOBE({
       el: this.vantaRef.current,
       THREE: THREE,
+      color: "#7f5af0",
+      color2: "#2cb67d",
+      size: 1.2,
+      backgroundColor: "#16161a",
     });
   }
   componentWillUnmount() {
