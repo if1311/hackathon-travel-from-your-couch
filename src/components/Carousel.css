@@ -50,8 +50,10 @@ video {
 	height: 100%
 }
 
-.buttons {
-	display: inline;
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .hidden {
