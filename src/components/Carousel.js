@@ -82,18 +82,16 @@ export default class Carousel extends Component {
 				</div>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
 				<button onClick={this.goHome}>Home</button>
-					{/* <h1>{this.state.currentCategory[0].category}</h1> */}
 					<div className="fsPlayer">
-						{/* <h3>{this.state.categories[this.state.index].category}</h3> */}
 						<video width="90%" height="80%" controls onClick={this.handleClick}></video>
 					</div>
 					<div className="controls">
-					<button onClick={this.goBack}>Back</button>
-					<div classname="details">
-					<h3>Description</h3>
-					<p>Some details go here</p>
-					</div>
-					<button onClick={this.goForward}>Forward</button>
+						<button onClick={this.goBack}>Back</button>
+							<div classname="details">
+							<h3>Description</h3>
+							<p>Some details go here</p>
+							</div>
+						<button onClick={this.goForward}>Forward</button>
 					</div>
 				</div>
 			</div>
