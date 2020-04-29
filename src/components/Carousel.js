@@ -67,7 +67,7 @@ export default class Carousel extends Component {
 	render() {
 		return (
 			<div className="container">
-				<div className={this.state.fullscreen ? "fullscreen" : "homepageCarousel"}>
+				<div className={this.state.fullscreen ? "hidden" : "homepageCarousel"}>
 					<h1>{this.state.currentCategory[0].category}</h1>
 					<button onClick={this.goBack}>Back</button>
 					<div className="categories">
@@ -75,6 +75,17 @@ export default class Carousel extends Component {
 						<img alt="lala" src={this.state.categories[this.state.index].image} onClick={this.handleClick}></img>
 					</div>
 					<button onClick={this.goForward}>Forward</button>
+				</div>
+				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
+					{/* <h1>{this.state.currentCategory[0].category}</h1> */}
+					<div className="fsPlayer">
+						{/* <h3>{this.state.categories[this.state.index].category}</h3> */}
+						<video width="90%" height="80%" controls onClick={this.handleClick}></video>
+					</div>
+					<div className="buttons">
+					<button onClick={this.goBack}>Back</button>
+					<button onClick={this.goForward}>Forward</button>
+					</div>
 				</div>
 			</div>
 		);
