@@ -7,29 +7,29 @@ export default class Carousel extends Component {
 		this.state = {
 			categories: [
 				{
-					category: "beach",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "Beach",
+					image: require("../carousel-images/beach.png"),
+					gradient: "linear-gradient(to bottom, #f7ff00, #db36a4)",
 				},
 				{
-					category: "mountain",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "Mountain",
+					image: require("../carousel-images/mountain.jpg"),
+					gradient: "linear-gradient(to bottom, #bdc3c7, #2c3e50)",
 				},
 				{
-					category: "city",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "City",
+					image: require("../carousel-images/city.jpg"),
+					gradient: "linear-gradient(to bottom, #000000, #434343)",
 				},
 				{
-					category: "monument",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "Parks",
+					image: require("../carousel-images/parks.jpg"),
+					gradient: "linear-gradient(to bottom, #00f260, #0575e6)",
 				},
 				{
-					category: "forest",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "Forest",
+					image: require("../carousel-images/forest.jpg"),
+					gradient: "linear-gradient(to bottom, #5a3f37, #2c7744)",
 				},
 			],
 			currentCategory: [
@@ -55,7 +55,7 @@ export default class Carousel extends Component {
 		if (this.state.index === 0) {
 			this.setState({ index: this.state.categories.length - 1, currentCategory: [this.state.categories[this.state.categories.length - 1]] });
 		} else {
-			this.setState({ index: this.state.index - 1 });
+			this.setState({ index: this.state.index - 1, currentCategory: [this.state.categories[this.state.index - 1]] });
 		}
 	};
 
@@ -63,11 +63,13 @@ export default class Carousel extends Component {
 		return (
 			<div className="container">
 				<div className="homepageCarousel">
-					<h1>{this.state.currentCategory[0].category}</h1>
 					<button onClick={this.goBack}>Back</button>
 					<div className="categories">
-						<h3>{this.state.categories[this.state.index].category}</h3>
+						<h1>{this.state.categories[this.state.index].category}</h1>
 						<img alt="lala" src={this.state.categories[this.state.index].image}></img>
+						{/* <div style={{ background: this.state.categories[this.state.index].gradient }} className="gradient">
+							<h1>{this.state.categories[this.state.index].category}</h1>
+						</div> */}
 					</div>
 					<button onClick={this.goForward}>Forward</button>
 				</div>

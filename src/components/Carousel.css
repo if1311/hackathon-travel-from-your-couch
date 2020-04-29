@@ -22,19 +22,37 @@ body {
 }
 
 .homepageCarousel {
-	background: red;
+	margin-left: 150px;
 	display: flex;
 	align-items: center;
 	height: 300px;
 }
 
-.categories {
-	width: 500px;
-	background: green;
-	height: 200px;
-}
-
 button {
 	width: 80px;
 	height: 30px;
+}
+
+img,
+.gradient {
+	width: 700px;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+}
+
+h1 {
+	color: white;
+	/* position: absolute;
+	top: 400px;
+	left: 500px; */
+	font-size: 5em;
+
+	text-shadow: horizontal-offset vertical-offset blur color;
+
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
