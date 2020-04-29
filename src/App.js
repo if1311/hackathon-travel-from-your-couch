@@ -1,9 +1,11 @@
 import React from "react";
-
+import RandomButton from "./components/RandomButton";
 import GLOBE from "vanta/dist/vanta.globe.min.js";
 import * as THREE from "three";
 import "./App.css";
 import Carousel from "./components/Carousel";
+
+
 
 
 class App extends React.Component {
@@ -27,6 +29,7 @@ class App extends React.Component {
   render() {
     return(<div ref={this.vantaRef} className="vanta">
             <Carousel />
+           <RandomButton array={[1, 2, 3, 4, 5, 6]} />
            </div>) ;
   }
 
