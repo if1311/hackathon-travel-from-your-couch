@@ -5,6 +5,7 @@ export default class Carousel extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			fullscreen: false,
 			categories: [
 				{
 					category: "beach",
@@ -43,6 +44,10 @@ export default class Carousel extends Component {
 		};
 	}
 
+	handleClick = () => {
+		this.setState({fullscreen: !this.state.fullscreen});
+	}
+
 	goForward = () => {
 		if (this.state.index === this.state.categories.length - 1) {
 			this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
@@ -62,12 +67,12 @@ export default class Carousel extends Component {
 	render() {
 		return (
 			<div className="container">
-				<div className="homepageCarousel">
+				<div className={this.state.fullscreen ? "fullscreen" : "homepageCarousel"}>
 					<h1>{this.state.currentCategory[0].category}</h1>
 					<button onClick={this.goBack}>Back</button>
 					<div className="categories">
 						<h3>{this.state.categories[this.state.index].category}</h3>
-						<img alt="lala" src={this.state.categories[this.state.index].image}></img>
+						<img alt="lala" src={this.state.categories[this.state.index].image} onClick={this.handleClick}></img>
 					</div>
 					<button onClick={this.goForward}>Forward</button>
 				</div>

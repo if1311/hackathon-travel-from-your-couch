@@ -38,3 +38,7 @@ button {
 	width: 80px;
 	height: 30px;
 }
+
+.fullscreen {
+	background-color: yellow;
+}
