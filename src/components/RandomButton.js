@@ -8,6 +8,7 @@ export default function RandomButton(props) {
 		// return randomItem;
 	}
 
+
 	return (
 		<div>
 			<a href="#" className="btn btn-white btn-animate" onClick={() => getRandomPlace(props.array)}>
@@ -16,4 +17,5 @@ export default function RandomButton(props) {
 			</a>
 		</div>
 	);
+
 }

@@ -4,6 +4,10 @@ import RandomButton from "./RandomButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import Tilt from "react-tilt";
+import "./iframe.css";
+import Frame from "./Frame";
+
+
 
 export default class Carousel extends Component {
 	constructor(props) {
@@ -51,21 +55,33 @@ export default class Carousel extends Component {
 		this.setState({ fullscreen: !this.state.fullscreen });
 	};
 
-	goForward = () => {
-		if (this.state.index === this.state.categories.length - 1) {
-			this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
-		} else {
-			this.setState({ index: this.state.index + 1, currentCategory: [this.state.categories[this.state.index + 1]] });
-		}
-	};
 
-	goBack = () => {
-		if (this.state.index === 0) {
-			this.setState({ index: this.state.categories.length - 1, currentCategory: [this.state.categories[this.state.categories.length - 1]] });
-		} else {
-			this.setState({ index: this.state.index - 1, currentCategory: [this.state.categories[this.state.index - 1]] });
-		}
-	};
+  goForward = () => {
+    if (this.state.index === this.state.categories.length - 1) {
+      this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
+    } else {
+      this.setState({
+        index: this.state.index + 1,
+        currentCategory: [this.state.categories[this.state.index + 1]],
+      });
+    }
+  };
+
+  goBack = () => {
+    if (this.state.index === 0) {
+      this.setState({
+        index: this.state.categories.length - 1,
+        currentCategory: [
+          this.state.categories[this.state.categories.length - 1],
+        ],
+      });
+    } else {
+      this.setState({
+        index: this.state.index - 1,
+        currentCategory: [this.state.categories[this.state.index - 1]],
+      });
+    }
+  };
 
 	goHome = () => {
 		this.setState({ fullscreen: !this.state.fullscreen });
@@ -87,6 +103,9 @@ export default class Carousel extends Component {
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
+      <div className="fsPlayer">
+            <Frame source="http://webcams.windy.com/webcams/stream/1235134756" />
+          </div>
 					<button onClick={this.goHome}>Home</button>
 					<div className="fsPlayer">
 						<video width="90%" height="80%" controls onClick={this.handleClick}></video>
@@ -103,4 +122,5 @@ export default class Carousel extends Component {
 			</div>
 		);
 	}
+
 }

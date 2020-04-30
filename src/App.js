@@ -5,6 +5,7 @@ import "./App.css";
 import Carousel from "./components/Carousel";
 
 class App extends React.Component {
+
 	constructor() {
 		super();
 		this.vantaRef = React.createRef();
@@ -29,5 +30,6 @@ class App extends React.Component {
 			</div>
 		);
 	}
+
 }
 export default App;
