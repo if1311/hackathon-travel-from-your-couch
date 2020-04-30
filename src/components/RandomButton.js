@@ -7,9 +7,5 @@ export default function RandomButton(props) {
     // return randomItem;
   }
 
-  return (
-    <div>
-      <button onClick={() => getRandomPlace(props.array)}> Random </button>
-    </div>
-  );
+  return <button onClick={() => getRandomPlace(props.array)}> Random </button>;
 }

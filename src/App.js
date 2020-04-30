@@ -5,9 +5,6 @@ import * as THREE from "three";
 import "./App.css";
 import Carousel from "./components/Carousel";
 
-
-
-
 class App extends React.Component {
   constructor() {
     super();
@@ -27,11 +24,12 @@ class App extends React.Component {
     if (this.vantaEffect) this.vantaEffect.destroy();
   }
   render() {
-    return(<div ref={this.vantaRef} className="vanta">
-            <Carousel />
-           <RandomButton array={[1, 2, 3, 4, 5, 6]} />
-           </div>) ;
+    return (
+      <div ref={this.vantaRef} className="vanta">
+        <Carousel />
+        {/* <RandomButton array={[1, 2, 3, 4, 5, 6]} /> */}
+      </div>
+    );
   }
-
 }
 export default App;
