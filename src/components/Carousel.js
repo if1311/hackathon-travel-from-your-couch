@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Carousel.css";
-import RandomButton from "./RandomButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import Tilt from "react-tilt";
@@ -160,8 +159,9 @@ export default class Carousel extends Component {
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
-
-					<button id="home" onClick={this.goHome}>Home</button>
+					<button id="home" onClick={this.goHome}>
+						Home
+					</button>
 					<div classname="details">
 						<h3>{this.state.title}</h3>
 						<h3>{this.state.country}</h3>
@@ -169,16 +169,14 @@ export default class Carousel extends Component {
 
 					<div class="main">
 						<div id="leftButton">
-							<FontAwesomeIcon onClick={this.goBack} icon={faCaretLeft} size="9x" className="arrows" color="white" />
+							<FontAwesomeIcon onClick={this.addCount} icon={faCaretLeft} size="9x" className="arrows" color="white" />
 						</div>
 						<div className="fsPlayer">
 							<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
 						</div>
 						<div id="rightButton">
-							<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
+							<FontAwesomeIcon className="arrows" onClick={this.removeCount} icon={faCaretRight} size="9x" color="white" />
 						</div>
-
-
 					</div>
 				</div>
 			</div>
