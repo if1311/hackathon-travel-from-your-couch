@@ -160,19 +160,25 @@ export default class Carousel extends Component {
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
-					<button onClick={this.goHome}>Home</button>
-					<div className="details">
+
+					<button id="home" onClick={this.goHome}>Home</button>
+					<div classname="details">
 						<h3>{this.state.title}</h3>
 						<h3>{this.state.country}</h3>
 					</div>
-					<div className="fsPlayer">
-						<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
-					</div>
 
-					<div className="controls">
-						<FontAwesomeIcon onClick={this.removeCount} icon={faCaretLeft} size="9x" className="arrows" color="white" />
+					<div class="main">
+						<div id="leftButton">
+							<FontAwesomeIcon onClick={this.goBack} icon={faCaretLeft} size="9x" className="arrows" color="white" />
+						</div>
+						<div className="fsPlayer">
+							<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
+						</div>
+						<div id="rightButton">
+							<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
+						</div>
 
-						<FontAwesomeIcon className="arrows" onClick={this.addCount} icon={faCaretRight} size="9x" color="white" />
+
 					</div>
 				</div>
 			</div>
