@@ -9,14 +9,11 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-iframe": "^1.8.0",
-    "react-player": "^2.0.1",
     "react-scripts": "3.4.1",
     "react-tilt": "^0.1.4",
     "redux": "^4.0.5",
     "three": "^0.115.0",
-    "vanta": "^0.5.15",
-    "video-react": "^0.14.1"
+    "vanta": "^0.5.15"
   },
   "scripts": {
     "start": "react-scripts start",
