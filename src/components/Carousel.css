@@ -159,6 +159,10 @@ h1 {
 	}
 }
 
+.details {
+	color: white;
+}
+
 @media (max-width: 800px) {
 	img {
 		width: 100%;
