@@ -153,15 +153,19 @@ export default class Carousel extends Component {
 						<div>
 							<a href="#" onClick={() => this.getRandomPlace(this.state.categories)} className="btn btn-white btn-animate">
 								{" "}
-								Random{" "}
+								Take me anywhere!{" "}
 							</a>
 						</div>
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
-					<button id="home" onClick={this.goHome}>
+					<a href="#" id="home" onClick={this.goHome} className="btn btn-white btn-animate">
+						{" "}
+						Home{" "}
+					</a>
+					{/* <button id="home" onClick={this.goHome}>
 						Home
-					</button>
+					</button> */}
 					<div classname="details">
 						<h3>{this.state.title}</h3>
 						<h3>{this.state.country}</h3>

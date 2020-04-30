@@ -120,7 +120,7 @@ h1 {
 	color: #16161a;
 	font-weight: 500;
 	position: relative;
-	left: 500px;
+	left: 460px;
 }
 
 .btn::after {
@@ -171,9 +171,11 @@ iFrame {
 
 h3 {
 	color: white;
-	font-size: 3em;
+	font-size: 2em;
 	text-shadow: horizontal-offset vertical-offset blur color;
 	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+	position: relative;
+	top: 50px;
 }
 
 p {
@@ -183,15 +185,14 @@ p {
 	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 #home {
-	display: flex;
-	text-decoration: none;
+	/* text-decoration: none;
 	margin: 10px 10px;
-
+	float: left;
 	display: inline-block;
 	border-radius: 5px;
 	transition: all 0.2s;
 	position: absolute;
-	justify-content: center;
+	justify-content: center; */
 }
 
 @keyframes moveInBottom {
