@@ -7,8 +7,6 @@ import Tilt from "react-tilt";
 import "./iframe.css";
 import Frame from "./Frame";
 
-
-
 export default class Carousel extends Component {
 	constructor(props) {
 		super(props);
@@ -55,33 +53,30 @@ export default class Carousel extends Component {
 		this.setState({ fullscreen: !this.state.fullscreen });
 	};
 
+	goForward = () => {
+		if (this.state.index === this.state.categories.length - 1) {
+			this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
+		} else {
+			this.setState({
+				index: this.state.index + 1,
+				currentCategory: [this.state.categories[this.state.index + 1]],
+			});
+		}
+	};
 
-  goForward = () => {
-    if (this.state.index === this.state.categories.length - 1) {
-      this.setState({ index: 0, currentCategory: [this.state.categories[0]] });
-    } else {
-      this.setState({
-        index: this.state.index + 1,
-        currentCategory: [this.state.categories[this.state.index + 1]],
-      });
-    }
-  };
-
-  goBack = () => {
-    if (this.state.index === 0) {
-      this.setState({
-        index: this.state.categories.length - 1,
-        currentCategory: [
-          this.state.categories[this.state.categories.length - 1],
-        ],
-      });
-    } else {
-      this.setState({
-        index: this.state.index - 1,
-        currentCategory: [this.state.categories[this.state.index - 1]],
-      });
-    }
-  };
+	goBack = () => {
+		if (this.state.index === 0) {
+			this.setState({
+				index: this.state.categories.length - 1,
+				currentCategory: [this.state.categories[this.state.categories.length - 1]],
+			});
+		} else {
+			this.setState({
+				index: this.state.index - 1,
+				currentCategory: [this.state.categories[this.state.index - 1]],
+			});
+		}
+	};
 
 	goHome = () => {
 		this.setState({ fullscreen: !this.state.fullscreen });
@@ -103,24 +98,22 @@ export default class Carousel extends Component {
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
-      <div className="fsPlayer">
-            <Frame source="http://webcams.windy.com/webcams/stream/1235134756" />
-          </div>
 					<button onClick={this.goHome}>Home</button>
-					<div className="fsPlayer">
-						<video width="90%" height="80%" controls onClick={this.handleClick}></video>
+					<div classname="details">
+						<h3>Description</h3>
+						<p>Some details go here</p>
 					</div>
+					<div className="fsPlayer">
+						<Frame source="http://webcams.windy.com/webcams/stream/1235134756" />
+					</div>
+
 					<div className="controls">
-						<button onClick={this.goBack}>Back</button>
-						<div classname="details">
-							<h3>Description</h3>
-							<p>Some details go here</p>
-						</div>
-						<button onClick={this.goForward}>Forward</button>
+						<FontAwesomeIcon onClick={this.goBack} icon={faCaretLeft} size="9x" className="arrows" color="white" />
+
+						<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
 					</div>
 				</div>
 			</div>
 		);
 	}
-
 }
