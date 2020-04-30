@@ -39,9 +39,8 @@ export default class Carousel extends Component {
 			],
 			currentCategory: [
 				{
-					category: "beach",
-					image:
-						"https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fvirus%2F2-2-virus-free-png-image-thumb.png&sp=1588165662T0832cb60f18276a6b3ef386d996d429c1520fc04ae94fd7490dc1ea3de1cd22e",
+					category: "Beach",
+					image: require("../carousel-images/beach3.jpg"),
 				},
 			],
 			index: 0,
@@ -84,6 +83,7 @@ export default class Carousel extends Component {
 							<img alt="lala" src={this.state.categories[this.state.index].image} onClick={this.handleClick}></img>
 							<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
 						</div>
+						<RandomButton array={[1, 2, 3, 4, 5, 6]} />
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
@@ -100,7 +100,6 @@ export default class Carousel extends Component {
 						<button onClick={this.goForward}>Forward</button>
 					</div>
 				</div>
-				{/* <RandomButton array={[1, 2, 3, 4, 5, 6]} /> */}
 			</div>
 		);
 	}

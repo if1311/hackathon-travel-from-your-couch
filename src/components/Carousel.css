@@ -88,14 +88,83 @@ h1 {
 	color: #cecece;
 }
 
+.btn:link,
+.btn:visited {
+	text-decoration: none;
+	padding: 10px 40px;
+	display: inline-block;
+	border-radius: 5px;
+	transition: all 0.2s;
+	position: absolute;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+	transform: translateY(-1px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+	background-color: #fff;
+	color: #16161a;
+	font-weight: 500;
+	position: relative;
+	left: 500px;
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all 0.4s;
+}
+
+.btn-white::after {
+	background-color: #fff;
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn-animated {
+	animation: moveInBottom 5s ease-out;
+	animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
 @media (max-width: 800px) {
 	img {
 		width: 100%;
-
-		object-fit: cover;
 	}
 	.container {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.homepageCarousel {
@@ -105,11 +174,14 @@ h1 {
 
 	.categories {
 		width: 100%;
-
-		height: 800px;
 	}
 
 	.arrows {
 		display: none;
+	}
+
+	.btn-white {
+		position: initial;
+		left: 120px;
 	}
 }
