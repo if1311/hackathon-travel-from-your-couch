@@ -8,12 +8,9 @@ function Introduction(props) {
       className="container-intro"
       style={{ display: props.display ? "none" : "" }}
     >
-      <div className="title">
-        <h4>Bored? No problem.</h4>
-      </div>
       <div className="style">
         <Wave
-          text="Find your most engaging world scenes here!"
+          text="Bored? No problem."
           effect="verticalFadeIn"
           effectChange={0.3}
           effectDirection="pop"
@@ -21,7 +18,9 @@ function Introduction(props) {
           speed="15"
         />
       </div>
-
+      <div className="title">
+        <h4>Find your most engaging world scenes here!</h4>
+      </div>
       <div className="contain-btn">
         <a
           href="#"

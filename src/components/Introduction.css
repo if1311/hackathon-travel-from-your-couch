@@ -12,14 +12,14 @@
   margin-bottom: 1em;
   padding: 2em 1em 1em 1em;
   width: 50%;
-  font-size: 2.2em;
+  font-size: 3em;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .title {
   color: white;
   text-align: center;
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 40px;
 }
 .btn2-white {
@@ -96,14 +96,27 @@ button {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 855px) {
   .style {
     display: block;
     color: white;
     margin-bottom: 1em;
     padding: 2em 1em 1em 1em;
     width: 60%;
-    font-size: 2em;
+    font-size: 2.2em;
     text-align: center;
+  }
+  .title {
+    color: white;
+    text-align: center;
+    font-size: 1.7em;
+    margin-bottom: 40px;
+  }
+  .btn2-white {
+    background-color: #fff;
+    color: #16161a;
+    font-weight: 500;
+    position: relative;
+    left: 40%;
   }
 }
