@@ -3,11 +3,11 @@ import "./Carousel.css";
 
 export default function RandomButton(props) {
 	function getRandomPlace(array) {
+		props.handleClick();
 		let randomItem = array[Math.floor(Math.random() * array.length)];
 		console.log(randomItem);
 		// return randomItem;
 	}
-
 
 	return (
 		<div>
@@ -17,5 +17,4 @@ export default function RandomButton(props) {
 			</a>
 		</div>
 	);
-
 }

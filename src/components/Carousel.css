@@ -167,6 +167,7 @@ h1 {
 	img {
 		width: 100%;
 	}
+
 	.container {
 		width: 100%;
 		display: flex;
@@ -184,12 +185,8 @@ h1 {
 		width: 100%;
 	}
 
-	.arrows {
-		display: none;
-	}
-
 	.btn-white {
-		position: initial;
-		left: 120px;
+		position: absolute;
+		left: 30%;
 	}
 }
