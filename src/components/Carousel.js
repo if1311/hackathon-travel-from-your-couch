@@ -6,9 +6,12 @@ import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import Tilt from "react-tilt";
 import "./iframe.css";
 import Frame from "./Frame";
-import "./ids";
-import { beachesIds, forestIds, mountainIds, cityIds, parkIds } from "./ids";
-import axios from "axios";
+
+import { cities } from "./cities";
+import { beaches } from "./beaches";
+import { mountains } from "./mountains";
+import { parks } from "./parks";
+import { forests } from "./forests";
 
 export default class Carousel extends Component {
 	constructor(props) {
@@ -19,30 +22,30 @@ export default class Carousel extends Component {
 				{
 					category: "Beach",
 					image: require("../carousel-images/beach3.jpg"),
-					ids: beachesIds,
+					ids: beaches,
 				},
 				{
 					category: "Mountain",
 					image: require("../carousel-images/mountain2.jpg"),
-					ids: mountainIds,
+					ids: mountains,
 				},
 				{
 					category: "City",
 					image: require("../carousel-images/city4.jpg"),
-					ids: cityIds,
+					ids: cities,
 				},
 				{
 					category: "Park",
 					image: require("../carousel-images/park2.jpg"),
-					ids: parkIds,
+					ids: parks,
 				},
 				{
 					category: "Forest",
 					image: require("../carousel-images/forest2.jpg"),
-					ids: forestIds,
+					ids: forests,
 				},
 			],
-			currentCategory: beachesIds,
+			currentCategory: beaches,
 			index: 0,
 
 			title: "",
@@ -51,22 +54,14 @@ export default class Carousel extends Component {
 		};
 	}
 
-	apiCall = (id) => {
-		axios
-			.get(`https://api.windy.com/api/webcams/v2/list/webcam=${id}?key=bosszrGokuaDZsdFBCa4IXzhPmIQGMzc&show=webcams:location`)
-			.then((res) => res.data)
-			.then((data) =>
-				this.setState({
-					title: data.result.webcams[0].title,
-					country: data.result.webcams[0].location.country,
-				})
-			);
-	};
-
 	handleClick = () => {
-		this.apiCall(this.state.currentCategory[0]);
+		console.log(beaches);
 
-		this.setState({ fullscreen: !this.state.fullscreen });
+		this.setState({
+			fullscreen: !this.state.fullscreen,
+			title: this.state.currentCategory.result.webcams[0].title,
+			country: this.state.currentCategory.result.webcams[this.state.count].location.country,
+		});
 	};
 
 	goForward = () => {
@@ -95,38 +90,53 @@ export default class Carousel extends Component {
 	};
 
 	goHome = () => {
-		this.setState({ fullscreen: !this.state.fullscreen, count: 0, currentCategory: beachesIds });
+		this.setState({ fullscreen: !this.state.fullscreen, count: 0, currentCategory: beaches, index: 0 });
 	};
 
 	addCount = () => {
-		if (this.state.count === this.state.currentCategory.length) {
+		if (this.state.count === this.state.currentCategory.result.webcams.length) {
 			this.setState({ count: 0 });
 		}
-		setTimeout(() => {
-			this.apiCall(this.state.currentCategory[this.state.count + 1]);
-		}, 100);
 
-		if (this.state.count === this.state.currentCategory.length - 1) {
+		if (this.state.count === this.state.currentCategory.result.webcams.length - 1) {
 			this.setState({ count: 0 });
 		} else {
 			this.setState({ count: this.state.count + 1 });
 		}
 		setTimeout(() => {
+			this.setState({
+				title: this.state.currentCategory.result.webcams[this.state.count].title,
+				country: this.state.currentCategory.result.webcams[this.state.count].location.country,
+			});
 			console.log(this.state.count);
 		}, 100);
 	};
 
 	removeCount = () => {
 		if (this.state.count === 0) {
-			this.setState({ count: this.state.currentCategory.length - 1 });
-			this.apiCall(this.state.currentCategory[this.state.count]);
+			this.setState({ count: this.state.currentCategory.result.webcams.length - 1 });
 		} else {
 			this.setState({ count: this.state.count - 1 });
-			this.apiCall(this.state.currentCategory[this.state.count - 1]);
 		}
+
 		setTimeout(() => {
+			this.setState({
+				title: this.state.currentCategory.result.webcams[this.state.count].title,
+				country: this.state.currentCategory.result.webcams[this.state.count].location.country,
+			});
 			console.log(this.state.count);
 		}, 100);
+	};
+
+	getRandomPlace = (array) => {
+		let randomItem = array[Math.floor(Math.random() * array.length)];
+		this.setState({ currentCategory: randomItem.ids });
+		console.log(randomItem);
+		setTimeout(() => {
+			this.handleClick();
+		}, 100);
+
+		// return randomItem;
 	};
 
 	render() {
@@ -141,7 +151,12 @@ export default class Carousel extends Component {
 							<img alt="lala" src={this.state.categories[this.state.index].image} onClick={this.handleClick}></img>
 							<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
 						</div>
-						<RandomButton array={[1, 2, 3, 4, 5, 6]} />
+						<div>
+							<a href="#" onClick={() => this.getRandomPlace(this.state.categories)} className="btn btn-white btn-animate">
+								{" "}
+								Random{" "}
+							</a>
+						</div>
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
@@ -151,16 +166,18 @@ export default class Carousel extends Component {
 						<h3>{this.state.title}</h3>
 						<h3>{this.state.country}</h3>
 					</div>
+
 					<div class="main">
 						<div id="leftButton">
 							<FontAwesomeIcon onClick={this.goBack} icon={faCaretLeft} size="9x" className="arrows" color="white" />
 						</div>
 						<div className="fsPlayer">
-							<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory[this.state.count]}`} />
+							<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
 						</div>
 						<div id="rightButton">
 							<FontAwesomeIcon className="arrows" onClick={this.goForward} icon={faCaretRight} size="9x" color="white" />
 						</div>
+
 
 					</div>
 				</div>

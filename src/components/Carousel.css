@@ -233,10 +233,11 @@ p {
 	color: white;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 802px) {
 	img {
 		width: 100%;
 	}
+
 	.container {
 		width: 100%;
 		display: flex;
@@ -254,12 +255,8 @@ p {
 		width: 100%;
 	}
 
-	.arrows {
-		display: none;
-	}
-
 	.btn-white {
-		position: initial;
-		left: 120px;
+		position: absolute;
+		left: 30%;
 	}
 }
