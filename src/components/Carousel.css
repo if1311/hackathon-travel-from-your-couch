@@ -196,6 +196,27 @@ p {
 	text-shadow: horizontal-offset vertical-offset blur color;
 	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
+#home {
+	/* width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+	margin: 20px; */
+	display: flex;
+	text-decoration: none;
+	margin: 10px 10px;
+    /* padding: 10px 40px; */
+    display: inline-block;
+    border-radius: 5px;
+    transition: all 0.2s;
+	position: absolute;
+	justify-content: center;
+
+}
+
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;

@@ -98,7 +98,7 @@ export default class Carousel extends Component {
 					</div>
 				</Tilt>
 				<div className={this.state.fullscreen ? "fullScreen" : "hidden"}>
-					<button onClick={this.goHome}>Home</button>
+					<button id="home" onClick={this.goHome}>Home</button>
 					<div classname="details">
 						<h3>Description</h3>
 						<p>Some details go here</p>
