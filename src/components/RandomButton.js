@@ -2,6 +2,7 @@ import React from "react";
 import "./Carousel.css";
 
 export default function RandomButton(props) {
+
   function getRandomPlace(array) {
     let randomItem = array[Math.floor(Math.random() * array.length)];
     console.log(randomItem);
@@ -20,4 +21,5 @@ export default function RandomButton(props) {
       </a>
     </div>
   );
+
 }
