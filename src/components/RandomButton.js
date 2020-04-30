@@ -1,11 +1,21 @@
 import React from "react";
+import "./Carousel.css";
 
 export default function RandomButton(props) {
-  function getRandomPlace(array) {
-    let randomItem = array[Math.floor(Math.random() * array.length)];
-    console.log(randomItem);
-    // return randomItem;
-  }
+	function getRandomPlace(array) {
+		let randomItem = array[Math.floor(Math.random() * array.length)];
+		console.log(randomItem);
+		// return randomItem;
+	}
 
-  return <button onClick={() => getRandomPlace(props.array)}> Random </button>;
+
+	return (
+		<div>
+			<a href="#" className="btn btn-white btn-animate" onClick={() => getRandomPlace(props.array)}>
+				{" "}
+				Random{" "}
+			</a>
+		</div>
+	);
+
 }
