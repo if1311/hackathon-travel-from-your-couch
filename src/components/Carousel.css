@@ -87,3 +87,29 @@ h1 {
 .arrows:hover {
 	color: #cecece;
 }
+
+@media (max-width: 800px) {
+	img {
+		width: 100%;
+
+		object-fit: cover;
+	}
+	.container {
+		width: 100%;
+	}
+
+	.homepageCarousel {
+		width: 100%;
+		margin: 0;
+	}
+
+	.categories {
+		width: 100%;
+
+		height: 800px;
+	}
+
+	.arrows {
+		display: none;
+	}
+}

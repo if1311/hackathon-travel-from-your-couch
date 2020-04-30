@@ -27,7 +27,7 @@ export default class Carousel extends Component {
 					gradient: "linear-gradient(to bottom, #000000, #434343)",
 				},
 				{
-					category: "Parks",
+					category: "Park",
 					image: require("../carousel-images/park2.jpg"),
 					gradient: "linear-gradient(to bottom, #00f260, #0575e6)",
 				},
@@ -75,7 +75,7 @@ export default class Carousel extends Component {
 	render() {
 		return (
 			<div className="container">
-				<Tilt className="Tilt" options={{ max: 25, perspective: 1500, speed: 400, transition: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}>
+				<Tilt className="Tilt" options={{ max: 25, perspective: 5000, speed: 400, transition: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}>
 					<div className={this.state.fullscreen ? "hidden" : "homepageCarousel"}>
 						<h1>{this.state.categories[this.state.index].category}</h1>
 

@@ -1,5 +1,4 @@
 import React from "react";
-
 import GLOBE from "vanta/dist/vanta.globe.min.js";
 import * as THREE from "three";
 import "./App.css";
