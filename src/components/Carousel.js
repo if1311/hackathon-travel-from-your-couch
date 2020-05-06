@@ -176,7 +176,7 @@ export default class Carousel extends Component {
 							<FontAwesomeIcon onClick={this.addCount} icon={faCaretLeft} size="9x" className="arrows" color="white" />
 						</div>
 						<div className="fsPlayer">
-							<Frame source={`http://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
+							<Frame source={`https://webcams.windy.com/webcams/stream/${this.state.currentCategory.result.webcams[this.state.count].id}`} />
 						</div>
 						<div id="rightButton">
 							<FontAwesomeIcon className="arrows" onClick={this.removeCount} icon={faCaretRight} size="9x" color="white" />
